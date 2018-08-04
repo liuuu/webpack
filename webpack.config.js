@@ -12,6 +12,13 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
       module: {
         rules: [
           {
+            test: /\.js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+              loader: "babel-loader"
+            }
+          },
+          {
             test: /\.jpe?g$/,
             use: [
               {
@@ -28,7 +35,12 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
         filename: "bundle.js",
         chunkFilename: "[name].lazy-chunk.js"
       },
-      plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()]
+      plugins: [
+        new HtmlWebpackPlugin({
+          template: "./src/index.html"
+        }),
+        new webpack.ProgressPlugin()
+      ]
     },
     modeConfig(mode),
     presetConfig({ mode, presets })

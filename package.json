@@ -8,7 +8,7 @@
     "webpack": "webpack",
     "debug": "node --inspect --inspect-brk ./node_modules/webpack/bin/webpack.js",
     "prod": "npm run webpack -- --env.mode production",
-    "dev": "npm run webpack-dev-server -- --env.mode development --hot",
+    "dev": "npm run webpack-dev-server -- --env.mode development --open --hot --history-api-fallback",
     "prod:typescript": "npm run prod -- --env.presets typescript",
     "prod:debug": "npm run debug -- --env.mode production",
     "dev:debug": "npm run debug -- --env.mode development",
@@ -22,8 +22,12 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.46",
-    "@babel/preset-env": "^7.0.0-beta.46",
+    "@babel/core": "^7.0.0-beta.55",
+    "@babel/plugin-proposal-decorators": "^7.0.0-beta.55",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.55",
+    "@babel/preset-env": "^7.0.0-beta.55",
+    "@babel/preset-react": "^7.0.0-beta.55",
+    "@babel/preset-stage-2": "^7.0.0-beta.55",
     "babel-loader": "^8.0.0-beta",
     "compression-webpack-plugin": "^1.1.11",
     "css-loader": "^0.28.11",
@@ -34,6 +38,7 @@
     "http-server": "^0.11.1",
     "mini-css-extract-plugin": "^0.4.0",
     "postcss-loader": "^2.1.5",
+    "react-hot-loader": "^4.3.4",
     "style-loader": "^0.21.0",
     "ts-loader": "^4.3.0",
     "typescript": "^2.9.0-dev.20180506",
@@ -48,6 +53,9 @@
     "workbox-webpack-plugin": "^3.2.0"
   },
   "dependencies": {
-    "d3": "^5.1.0"
+    "d3": "^5.1.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1"
   }
 }
